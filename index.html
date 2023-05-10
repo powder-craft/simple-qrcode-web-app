@@ -1,0 +1,27 @@
+<html>
+
+    <head>
+        <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+        <title>Simple qr code generator</title>
+    </head>
+
+    <body>
+        <div id="link">
+            <form action="javascript:;" onsubmit="generateQR()">
+                <input type="text" id="qr_link_value"/>
+                <input type="submit" value="Genera">
+            </form>
+        </div>
+        <div id="qrcode"></div>
+        <script type="text/javascript">
+            function generateQR(){
+                qrcode_div = document.getElementById("qrcode");
+                qrcode_value = document.getElementById("qr_link_value").value;
+                qrcode_div.innerHTML = "";
+                new QRCode(qrcode_div, {
+                    "text": qrcode_value
+                });
+            }
+        </script>
+    </body>
+</html>
